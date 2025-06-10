@@ -1,10 +1,10 @@
-NAME := claptrap
+NAME := scavtrap
 
-SRC := ClapTrap.cpp main.cpp
+SRC := ClapTrap.cpp main.cpp ScavTrap.cpp
 OBJ := $(SRC:.cpp=.o)
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -pedantic
 
 RM = /bin/rm -rf
 

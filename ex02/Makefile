@@ -1,10 +1,10 @@
-NAME := claptrap
+NAME := fragtrap
 
-SRC := ClapTrap.cpp main.cpp
+SRC := ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 OBJ := $(SRC:.cpp=.o)
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -pedantic -Wshadow -Wno-shadow
 
 RM = /bin/rm -rf
 

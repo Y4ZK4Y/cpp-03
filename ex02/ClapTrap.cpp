@@ -49,23 +49,27 @@ ClapTrap::~ClapTrap() {
 }
 
 // Getters
-std::string ClapTrap::getName() {
+std::string ClapTrap::getName() const {
     return this->Name;
 }
 
-int ClapTrap::getHitPoints() {
+int ClapTrap::getHitPoints() const {
     return this->hitPoints;
 }
 
-int ClapTrap::getEnergyPoints() {
+int ClapTrap::getEnergyPoints() const {
     return this->energyPoints;
 }
 
-int ClapTrap::getAttackDamage() {
+int ClapTrap::getAttackDamage() const {
     return this->attackDamage;
 }
 
 // Setters
+void ClapTrap::setName(const std::string& newName) {
+    Name = newName;
+}
+
 void ClapTrap::setHitPoints(int amount) {
     this->hitPoints = amount;
 }
@@ -93,9 +97,11 @@ void ClapTrap::takeDamage(unsigned int amount) {
         std::cout << "ClapTrap " << Name << " is already dead!" << std::endl;
         return;
     }
-    hitPoints -= amount;
-    if (hitPoints < 0)
+    if (amount >= hitPoints) {
         hitPoints = 0;
+    } else {
+    hitPoints -= amount;
+    }
     std::cout << "ClapTrap " << Name << " takes " << amount << " damage. hit points now: " << hitPoints << std::endl;
 }
 

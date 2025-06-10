@@ -17,7 +17,7 @@
 
 class ClapTrap {
 
-private:
+protected: // private to protected - allows ScavTrap to access
     std::string Name;
     unsigned int hitPoints; // starts at 10
     unsigned int energyPoints; // starts at 10
@@ -33,20 +33,20 @@ public:
     ~ClapTrap(); // Destructor
 
     // Getters
-    std::string getName();
-    int getHitPoints();
-    int getAttackDamage();
-    int getEnergyPoints();
+    std::string getName() const;
+    int getHitPoints() const;
+    int getAttackDamage() const;
+    int getEnergyPoints() const;
 
     // Setters
-    void            setHitPoints(int amount);
-    void            setEnergyPoints(int amount);
-    void            setAttackDamage(int amount);
+    void setName(const std::string& newName);
+    void setHitPoints(int amount);
+    void setEnergyPoints(int amount);
+    void setAttackDamage(int amount);
 
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-
 };
 
 #endif
